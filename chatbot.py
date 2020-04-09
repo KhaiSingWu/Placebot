@@ -17,19 +17,18 @@ from nltk.stem import WordNetLemmatizer
 nltk.download('popular', quiet=True) # for downloading packages
 
 # uncomment the following only the first time
-nltk.download('punkt') # first-time use only
-nltk.download('wordnet') # first-time use only
+#nltk.download('punkt') # first-time use only
+#nltk.download('wordnet') # first-time use only
 
 
-#Reading in the corpus
+
 with open('chat.txt','r', encoding='utf8', errors ='ignore') as fin:
     raw = fin.read().lower()
 
-#TOkenisation
-sent_tokens = nltk.sent_tokenize(raw)# converts to list of sentences 
-word_tokens = nltk.word_tokenize(raw)# converts to list of words
 
-# Preprocessing
+sent_tokens = nltk.sent_tokenize(raw) 
+word_tokens = nltk.word_tokenize(raw)
+
 lemmer = WordNetLemmatizer()
 def LemTokens(tokens):
     return [lemmer.lemmatize(token) for token in tokens]
@@ -49,7 +48,7 @@ def greeting(sentence):
             return random.choice(GREETING_RESPONSES)
 
 
-# Generating response
+
 def response(user_response):
     robo_response=''
     sent_tokens.append(user_response)
